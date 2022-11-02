@@ -1,3 +1,5 @@
+import {TechInventor} from "./TechInventor.js";
+
 export { Table }
 
 class Table {
@@ -6,7 +8,7 @@ class Table {
     sortByAsc = true;
 
     constructor(val) {
-        this.data = val
+        this.data = val.map(item => new TechInventor(item))
         this.render()
     }
 

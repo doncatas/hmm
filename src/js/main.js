@@ -2,6 +2,7 @@ import { GetInventorsDataAsync } from "./utils/utils.js";
 import { Table } from './models/Table.js'
 
 let inventorsData = await GetInventorsDataAsync();
+// console.log({ inventorsData })
 const table = new Table(inventorsData)
 
 document.querySelectorAll(".styled-table th").forEach(th => {

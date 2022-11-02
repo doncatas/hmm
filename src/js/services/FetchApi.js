@@ -28,20 +28,8 @@ async function GetAgeDataFromApiAsync(nameArray, baseUrl)
     const ageData = await Promise.all(nameArray[0].map(async (name) => {
             try{
                 const response = await fetch(`${baseUrl}getdate/${name}`);
- 
-                const yearInMiliseconds = 31556952000;
- 
-                return await response.json().then((age) => 
-                {
-                    if(age.Death != null)
-                    {
-                       return Math.floor((Date.parse(age.Death) - Date.parse(age.Birth)) / yearInMiliseconds);
-                    }
-                    else
-                    {
-                        return Math.floor((Date.now() - Date.parse(age.Birth)) / yearInMiliseconds);
-                    }
-                });
+
+                return await response.json()
             }   
             catch(err){
                 alert(err);
